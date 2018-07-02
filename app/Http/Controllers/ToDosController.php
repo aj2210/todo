@@ -121,7 +121,9 @@ class ToDosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
+
     {
+
         $todo = Todo::find($id);
         
         $todo->delete();

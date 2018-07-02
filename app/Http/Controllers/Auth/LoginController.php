@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use Auth;
 class LoginController extends Controller
 {
     /*
@@ -19,13 +19,21 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+    protected function authenticated($request, $user)
+    {
+        if(auth::check()) {
+            return redirect()->intended('/index');
+        }
+
+        return redirect()->intended('/login');
+    }
 
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = '/index';
+   // protected $redirectTo = '/index';
 
     /**
      * Create a new controller instance.

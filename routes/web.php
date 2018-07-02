@@ -21,7 +21,10 @@ Route::get('/', function(){
 
 	return view('auth.login');
 });
+/*Route::get('/', function(){
 
+	return view('todos.index');
+})->middleware('auth');*/
 
 /*Route::get('todo/create', 'ToDosController@create');
 
@@ -33,4 +36,4 @@ Route::post('todo/{id}', 'ToDosController@show');*/
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
